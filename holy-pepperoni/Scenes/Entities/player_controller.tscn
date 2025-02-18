@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://6t3hj67imviv"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_gucwa"]
+[ext_resource type="Texture2D" uid="uid://cofapyhf2rt61" path="res://Art/CharacterSprites/test-sprite.png" id="2_6elos"]
+[ext_resource type="Script" path="res://Scripts/player_camera.gd" id="3_3fwxr"]
+
+[node name="PlayerController" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_gucwa")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("2_6elos")
+
+[node name="PlayerCamera" type="Camera2D" parent="."]
+script = ExtResource("3_3fwxr")
