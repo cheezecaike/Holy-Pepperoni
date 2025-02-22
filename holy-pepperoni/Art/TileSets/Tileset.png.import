@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yl7ypul032qp"
-path="res://.godot/imported/Hills.png-6fe8d9ce489ce082354afa89572735fd.ctex"
+uid="uid://cn1heaiv3ttfl"
+path="res://.godot/imported/Tileset.png-7d189f5580c57f083c36b5c1bb50e925.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/DONOTSHIP/Hills.png"
-dest_files=["res://.godot/imported/Hills.png-6fe8d9ce489ce082354afa89572735fd.ctex"]
+source_file="res://Art/TileSets/Tileset.png"
+dest_files=["res://.godot/imported/Tileset.png-7d189f5580c57f083c36b5c1bb50e925.ctex"]
 
 [params]
 

@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://b4s6g1vyw7nke"]
+[gd_scene load_steps=3 format=3 uid="uid://b4s6g1vyw7nke"]
 
 [ext_resource type="Script" path="res://Scripts/title_screen.gd" id="1_c0w10"]
+[ext_resource type="Script" path="res://Scripts/game_controller.gd" id="1_n8dq6"]
 
 [node name="GameController" type="Node"]
+script = ExtResource("1_n8dq6")
 
 [node name="TitleScreen" type="Control" parent="."]
 layout_mode = 3
@@ -27,5 +29,6 @@ offset_right = 616.0
 offset_bottom = 283.0
 text = "Quit Game"
 
+[connection signal="tree_exited" from="TitleScreen" to="." method="_on_title_screen_tree_exited"]
 [connection signal="pressed" from="TitleScreen/StartButton" to="TitleScreen" method="_on_start_button_pressed"]
 [connection signal="pressed" from="TitleScreen/QuitButton" to="TitleScreen" method="_on_quit_button_pressed"]
