@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7y0sh5opnmcw"]
+
+[ext_resource type="Script" path="res://Scripts/interact_component.gd" id="1_jqg32"]
+
+[node name="InteractComponent" type="Area2D"]
+position = Vector2(634.778, 300.87)
+scale = Vector2(4.77819, 4.87008)
+script = ExtResource("1_jqg32")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
