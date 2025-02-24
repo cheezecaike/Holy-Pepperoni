@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=4 uid="uid://bqo2jp14ctsra"]
+[gd_scene load_steps=5 format=4 uid="uid://bqo2jp14ctsra"]
 
 [ext_resource type="Texture2D" uid="uid://cn1heaiv3ttfl" path="res://Art/TileSets/Tileset.png" id="1_ml5ea"]
-[ext_resource type="Texture2D" uid="uid://cceo11uxlkrj8" path="res://Art/Environment/Trees/blue_tree.png" id="2_1da8k"]
-[ext_resource type="Script" path="res://Scripts/interact_component.gd" id="3_o2i4o"]
+[ext_resource type="PackedScene" uid="uid://bch7pdvgsswyi" path="res://Scenes/Environment/tree.tscn" id="2_i54al"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rkkn0"]
 texture = ExtResource("1_ml5ea")
@@ -73,10 +72,6 @@ texture = ExtResource("1_ml5ea")
 [sub_resource type="TileSet" id="TileSet_ptncw"]
 sources/0 = SubResource("TileSetAtlasSource_rkkn0")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_px2c1"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_odlba"]
-
 [node name="TestLevel" type="Node2D"]
 
 [node name="Environment" type="Node2D" parent="."]
@@ -87,23 +82,4 @@ tile_set = SubResource("TileSet_ptncw")
 
 [node name="Objects" type="Node2D" parent="."]
 
-[node name="Tree" type="StaticBody2D" parent="Objects"]
-
-[node name="Sprite2D" type="Sprite2D" parent="Objects/Tree"]
-position = Vector2(631, 272)
-texture = ExtResource("2_1da8k")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Tree"]
-position = Vector2(630, 296)
-shape = SubResource("RectangleShape2D_px2c1")
-
-[node name="InteractComponent" type="Area2D" parent="Objects/Tree"]
-position = Vector2(634.778, 300.87)
-scale = Vector2(4.77819, 4.87008)
-script = ExtResource("3_o2i4o")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/Tree/InteractComponent"]
-scale = Vector2(1.07279, 1.06665)
-shape = SubResource("CircleShape2D_odlba")
-
-[connection signal="body_entered" from="Objects/Tree/InteractComponent" to="Objects/Tree/InteractComponent" method="_on_body_entered"]
+[node name="Tree" parent="Objects" instance=ExtResource("2_i54al")]

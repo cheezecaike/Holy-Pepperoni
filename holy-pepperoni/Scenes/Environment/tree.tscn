@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://bch7pdvgsswyi"]
+
+[ext_resource type="Script" path="res://Scripts/tree.gd" id="1_2im6e"]
+[ext_resource type="Texture2D" uid="uid://cceo11uxlkrj8" path="res://Art/Environment/Trees/blue_tree.png" id="1_dpji8"]
+[ext_resource type="Resource" uid="uid://cgw365xvr6rmt" path="res://Scenes/Items/apple.tres" id="2_2qje7"]
+[ext_resource type="PackedScene" uid="uid://b7y0sh5opnmcw" path="res://Scenes/Components/interact_component.tscn" id="2_vqvxg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_px2c1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hxrmx"]
+
+[node name="Tree" type="StaticBody2D"]
+script = ExtResource("1_2im6e")
+item = ExtResource("2_2qje7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(631, 272)
+texture = ExtResource("1_dpji8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(630, 296)
+shape = SubResource("RectangleShape2D_px2c1")
+
+[node name="InteractComponent" parent="." instance=ExtResource("2_vqvxg")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractComponent"]
+position = Vector2(-1.41853, -0.383979)
+scale = Vector2(0.999, 0.98)
+shape = SubResource("CircleShape2D_hxrmx")
+
+[connection signal="body_entered" from="InteractComponent" to="." method="_on_interact_component_body_entered"]

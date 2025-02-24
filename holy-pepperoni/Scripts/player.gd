@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 
+@export var inv: Inv
 
 func _physics_process(delta: float) -> void:
 
@@ -16,3 +17,6 @@ func _physics_process(delta: float) -> void:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 
 	move_and_slide()
+
+func collect(item):
+	inv.insert(item)

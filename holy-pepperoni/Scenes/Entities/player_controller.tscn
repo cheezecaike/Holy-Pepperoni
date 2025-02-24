@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://6t3hj67imviv"]
+[gd_scene load_steps=7 format=3 uid="uid://6t3hj67imviv"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_gucwa"]
 [ext_resource type="Texture2D" uid="uid://cofapyhf2rt61" path="res://Art/CharacterSprites/test-sprite.png" id="2_6elos"]
+[ext_resource type="Resource" uid="uid://bpscjitgmxgp4" path="res://Scenes/player_inventory.tres" id="2_kgq5e"]
 [ext_resource type="Script" path="res://Scripts/player_camera.gd" id="3_3fwxr"]
+[ext_resource type="PackedScene" uid="uid://s4bh7n6ask7i" path="res://Scenes/Player/inventory_ui.tscn" id="5_unxqr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0bnks"]
 
@@ -10,6 +12,7 @@
 
 [node name="Player" type="CharacterBody2D" parent="."]
 script = ExtResource("1_gucwa")
+inv = ExtResource("2_kgq5e")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 texture = ExtResource("2_6elos")
@@ -19,4 +22,11 @@ position = Vector2(0, 20)
 shape = SubResource("RectangleShape2D_0bnks")
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
+zoom = Vector2(2.01, 2.01)
 script = ExtResource("3_3fwxr")
+
+[node name="InventoryUI" parent="." instance=ExtResource("5_unxqr")]
+offset_left = -84.0
+offset_top = -126.0
+offset_right = 4.0
+offset_bottom = -64.0
