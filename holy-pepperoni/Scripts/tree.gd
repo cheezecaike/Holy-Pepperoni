@@ -17,7 +17,7 @@ func drop_apple():
 	player.collect(item)
 
 func _on_interact_component_body_entered(body: Node2D) -> void:
-	if body is CharacterBody2D:
+	if body is CharacterBody2D and body.name == "PlayerController":
 		print("Body Detected!")
 		player = body
 		player.collect(item)
